@@ -30,7 +30,7 @@ revert 用于线上回滚代码
 - 因为featue分支是通过merge的方式合并到main分支，所以会生成一个新的merge_commit_id
 
 - 此时找到该merge_commit_id在gitlab上使用revert功能回退代码
-  1. 新建一个revert分支，再合并到main分支生成一个merge_revert_commit_id （代码回滚成功）
+  ##### 新建一个revert分支，再合并到main分支生成一个merge_revert_commit_id （代码回滚成功）
     - 恢复提交
       ```
       // 切换到main
@@ -56,7 +56,7 @@ revert 用于线上回滚代码
       > 如果是revert的一个mgere_commit，该merge_commit就有两个parent, revert时git无法知道是恢复到哪个分支，所以会报错
       > `git revert -m 1 merge_commit`
       > 1代表当前分支，2代表合并过来的分支
-  2. 没有创建新的分支，直接生成了revert_commit_id（代码回滚成功）
+  ##### 没有创建新的分支，直接生成了revert_commit_id（代码回滚成功）
     - 恢复提交（使用main分支）
       ```
       // 切换到main
@@ -99,9 +99,12 @@ revert 用于线上回滚代码
        
        ```
        再次merge到main分支就可以了
-    3.直接在gitlab操作
-      1.找到merge_commit_id 使用revert回滚代码（不要使用新建revert方式）生成一个先的revert_commit_id（回滚成功）
-      2.要想恢复之前的提交 找到revert_commit_id的提交，使用revert回滚代码（不使用新建revert分支的方式）生成一个revert_revert_commit_id （恢复成功）
+       
+   ##### 直接在gitlab操作
+   
+  1.找到merge_commit_id 使用revert回滚代码（不要使用新建revert方式）生成一个先的revert_commit_id（回滚成功
+  
+  2.要想恢复之前的提交 找到revert_commit_id的提交，使用revert回滚代码（不使用新建revert分支的方式）生成一个revert_revert_commit_id （恢复成功）
 
 ### 参考文章
 - [git如何回滚一次错误的操作](https://juejin.cn/post/6844903647390744589)
