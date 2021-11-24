@@ -27,7 +27,7 @@ revert 用于线上回滚代码
 
 #### 情况2：feature分支合并到了main分支（上线完成）;发现feature分支存在bug需要回滚代码
 
-- 因为featue分支是通过merge的方式合并到main分支，所以会生成一个小的merge_commit_id
+- 因为featue分支是通过merge的方式合并到main分支，所以会生成一个新的merge_commit_id
 
 - 此时找到该merge_commit_id在gitlab上使用revert功能回退代码
   1. 新建一个revert分支，再合并到main分支生成一个merge_revert_commit_id （代码回滚成功）
@@ -99,6 +99,9 @@ revert 用于线上回滚代码
        
        ```
        再次merge到main分支就可以了
+    3.直接在gitlab操作
+      1.找到merge_commit_id 使用revert回滚代码（不要使用新建revert方式）生成一个先的revert_commit_id（回滚成功）
+      2.要想恢复之前的提交 找到revert_commit_id的提交，使用revert回滚代码（不使用新建revert分支的方式）生成一个revert_revert_commit_id （恢复成功）
 
 ### 参考文章
 - [git如何回滚一次错误的操作](https://juejin.cn/post/6844903647390744589)
