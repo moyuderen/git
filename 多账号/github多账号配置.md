@@ -1,0 +1,2 @@
+- [配置多个Git账号](https://blog.csdn.net/q13554515812/article/details/83506172)
+- [工作、开源两不误：Git 多账号管理](https://juejin.cn/post/6844903816609923080)
